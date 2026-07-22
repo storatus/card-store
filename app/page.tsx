@@ -1,6 +1,7 @@
 // src/app/page.tsx
 
 import db from "./lib/db";
+import Header from "@/components/Header";
 
 
 interface Card {
@@ -16,18 +17,10 @@ export default function Home() {
   // Fetch cards directly from the SQLite database
   const cards = db.prepare('SELECT * FROM cards').all() as Card[];
 
-
-  console.log(cards, 'Estas son las cartas')
-
   return (
     <div className="min-h-screen bg-slate-900 text-white p-8">
       {/* Header */}
-      <header className="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
-        <h1 className="text-2xl font-black tracking-wider text-emerald-400">TCG-SKELETON</h1>
-        <div className="flex gap-4 items-center">
-          <span className="text-sm bg-slate-800 px-3 py-1 rounded-full text-slate-300">Cart: 0 items</span>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content Grid */}
       <main className="max-w-6xl mx-auto">
