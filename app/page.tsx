@@ -2,6 +2,7 @@
 
 import db from "./lib/db";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 
 interface Card {
@@ -18,12 +19,12 @@ export default function Home() {
   const cards = db.prepare('SELECT * FROM cards').all() as Card[];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen flex flex-col bg-slate-900 text-white">
       {/* Header */}
       <Header />
 
       {/* Main Content Grid */}
-      <main className="max-w-6xl mx-auto px-6 py-8">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-8">
         <h2 className="text-xl font-semibold mb-6 text-slate-200">Featured Marketplace Inventory</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -55,6 +56,9 @@ export default function Home() {
           ))}
         </div>
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

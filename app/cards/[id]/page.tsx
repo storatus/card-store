@@ -2,6 +2,7 @@
 
 import db from "@/app/lib/db";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -33,10 +34,10 @@ export default async function CardDetailPage({ params }: CardDetailPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen flex flex-col bg-slate-900 text-white">
       <Header />
 
-      <main className="max-w-4xl mx-auto px-6 py-8">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-6 py-8">
         <Link
           href="/"
           className="inline-flex items-center text-sm font-medium text-emerald-400 hover:text-emerald-300 mb-6 transition-colors"
@@ -83,6 +84,8 @@ export default async function CardDetailPage({ params }: CardDetailPageProps) {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
